@@ -28,8 +28,11 @@ const formSchema = z.object({
     required_error: "El avatar es requerido.",
   }),
 });
+interface FormNewUserProps {
+  setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
+}
 
-export function FormNewUser() {
+export default function FormNewUser({ setIsOpen, ...props }: FormNewUserProps) {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -39,9 +42,25 @@ export function FormNewUser() {
   });
 
   function onSubmit(values: z.infer<typeof formSchema>) {
-    // Do something with the form values.
-    console.log(values);
+    // Obtener los usuarios existentes del localStorage
+    const existingUsers = JSON.parse(localStorage.getItem("users") || "[]");
+    // Verificar si el usuario ya existe
+    const userExists = existingUsers.some(
+      (user: { username: string }) => user.username === values.username
+    );
+    if (userExists) {
+      // Si el usuario ya existe, mostrar un mensaje de error --> CAMBIAR A SONNER EN EL FUTURO
+      alert("El usuario ya existe");
+    } else {
+      // Si el usuario no existe, agregarlo a la lista de usuarios
+      existingUsers.push(values);
+      // Guardar la lista de usuarios actualizada en el localStorage
+      localStorage.setItem("users", JSON.stringify(existingUsers));
+      // Cerrar el modal
+      setIsOpen(false);
+    }
   }
+
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className='space-y-8'>
@@ -52,7 +71,7 @@ export function FormNewUser() {
             <FormItem>
               <FormLabel>Nombre</FormLabel>
               <FormControl>
-                <Input placeholder='nombre' {...field} />
+                <Input placeholder='ej: Julieta...' {...field} />
               </FormControl>
               <FormDescription>Ingrese su nombre.</FormDescription>
               <FormMessage />
@@ -103,9 +122,6 @@ export function FormNewUser() {
                   })}
                 </RadioGroup>
               </FormControl>
-              <FormDescription>
-                This is your public display name.
-              </FormDescription>
               <FormMessage />
             </FormItem>
           )}

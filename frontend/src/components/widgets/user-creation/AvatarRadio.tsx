@@ -1,9 +1,10 @@
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { RadioGroupItem } from "@/components/ui/radio-group";
 import { FormControl, FormItem, FormLabel } from "@/components/ui/form";
+import { UseFormReturn } from "react-hook-form";
 
 interface AvatarProps {
-  form: any;
+  form: UseFormReturn<any>;
   avatarFallback: string;
   avatarValue: string;
   avatarUrl: string;
