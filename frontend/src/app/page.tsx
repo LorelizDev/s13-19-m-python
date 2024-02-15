@@ -1,4 +1,5 @@
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import { Icon } from "@/components/ui/icon";
 import Image from "next/image";
 
 export default function Home() {
@@ -14,6 +15,7 @@ export default function Home() {
         </CardContent>
         <CardFooter>
           <p>Card Footer</p>
+          <Icon iconName="airplane" />
         </CardFooter>
       </Card>
     </main>
