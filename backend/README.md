@@ -28,7 +28,7 @@ pip install poetry
 
 Despues de haber instalado **Poetry**, escribe esto en la terminal
 
-![poetry install](../assets/images/poetry-install.png)
+![poetry install](assets/images/poetry-install.png)
 
 Una vez verificado que lo tienes instalado, agrega la siguiente configuracion en la terminal
 
