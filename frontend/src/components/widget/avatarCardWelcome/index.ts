@@ -1,0 +1,1 @@
+export { CardWelcome } from "./CardWelcome";
