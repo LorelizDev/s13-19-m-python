@@ -1,10 +1,9 @@
 import React from "react";
-import { Stack } from "../../layout/stack";
-import content from "./content.json";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
 import { buttonVariants } from "../../ui/button";
 import { Text } from "../../ui/text";
+import { Stack } from "@/components/layout/stack";
 
 type Props = {
   products: {
@@ -26,17 +25,15 @@ export const ProductsOrdered = ({ products }: Props) => {
             key={product.id}
             className="w-full flex justify-between items-center gap-10"
           >
-            <div className="relative ">
+            <div className="relative self-start size-20 overflow-hidden">
               <Image
                 src={product.img}
                 alt={product.name + "image"}
-                width={80}
-                height={80}                
-                placeholder="blur"
-                blurDataURL={
-                  "https://th.bing.com/th/id/R.1632e46a5c79d43f3125ca62c54189cb?rik=5hQZZnvc9%2fkl6w&pid=ImgRaw&r=0"
-                }
-                className="w-auto h-auto rounded-md cursor-pointer"
+                fill
+                sizes="(min-width: 80px) 80px"
+                loading="eager"
+                style={{ objectFit: "cover", objectPosition: "fit", }}
+                className="rounded-md cursor-pointer"
               />
             </div>
 

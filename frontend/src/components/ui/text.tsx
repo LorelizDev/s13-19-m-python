@@ -9,13 +9,13 @@ type Props = {
 
 export const Text = ({ type, children, className='' }: Props) => {
   if (type === "title")
-    return <h2 className={`text-2xl font-bold text-foreground uppercase ${className}`} >{children}</h2>;
+    return <h1 className={`text-2xl font-bold text-foreground uppercase ${className}`} >{children}</h1>;
 
   if (type === "subtitle")
     return (
-      <h3 className={`text-xl font-bold text-secondary-foreground ${className}`}>
+      <h2 className={`text-xl font-bold text-secondary-foreground ${className}`}>
         {children}
-      </h3>
+      </h2>
     );
 
   if (type === "regular") 
