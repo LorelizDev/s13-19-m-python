@@ -9,13 +9,9 @@ Poetry
 Clona el proyecto con el siguiente comando
 `git clone https://github.com/No-Country/s13-19-m-python`
 
-Haras un archivo `.env` donde guardes las siguientes variables, guardalo en la carpeta
-de `backend`
+Crea un archivo `.env` donde se guardan las variables de entorno y demas, guardalo en la carpeta
+de `backend`.
 
-```
-SECRET_KEY=django-insecure-jj5yp26ptiql6jo%n+22(tb5ock0(=q_f12l!xor!$k4ea%1wu
-DEBUG=True
-```
 ----
 ### Poetry config
 
@@ -36,7 +32,7 @@ Una vez verificado que lo tienes instalado, agrega la siguiente configuracion en
 poetry config virtualenvs.in-project true
 ```
 
-Luego instalas dependecias con el siguiente comando:
+Luego instalas dependencias con el siguiente comando:
 
 ```sh
 poetry install
