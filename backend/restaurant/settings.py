@@ -50,6 +50,7 @@ DJANGO_APPS = [
 LOCAL_APPS = [
     "apps.menu",
     "apps.orders",
+    "apps.payments",
 ]
 
 # Add third party apps
