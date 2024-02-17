@@ -11,18 +11,23 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
 from pathlib import Path
+from django.core.management.utils import get_random_secret_key
 from django.core.exceptions import ImproperlyConfigured
-from decouple import config
+
+# from decouple import config
+import os
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = config("SECRET_KEY")
+# SECRET_KEY = config("SECRET_KEY")
+SECRET_KEY = get_random_secret_key()
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = config("DEBUG", default=False, cast=bool)
+# DEBUG = config("DEBUG", default=False, cast=bool)
+DEBUG = os.environ.get("DEBUG", default=False)
 
 ALLOWED_HOSTS = [
     "s1319mpython.pythonanywhere.com",
