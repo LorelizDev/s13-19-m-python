@@ -132,7 +132,7 @@ celerybeat.pid
 *.sage.py
 
 # Environments
-restaurant/.env
+.env
 .venv
 env/
 venv/

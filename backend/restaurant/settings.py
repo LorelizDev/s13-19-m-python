@@ -11,29 +11,20 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
 from pathlib import Path
-from django.core.management.utils import get_random_secret_key
 from django.core.exceptions import ImproperlyConfigured
-
-# from decouple import config
-import os
+from decouple import config
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
-# SECRET_KEY = config("SECRET_KEY")
-SECRET_KEY = get_random_secret_key()
+SECRET_KEY = config("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-# DEBUG = config("DEBUG", default=False, cast=bool)
-DEBUG = os.environ.get("DEBUG", default=False)
+DEBUG = config("DEBUG", default=False, cast=bool)
 
-ALLOWED_HOSTS = [
-    "s1319mpython.pythonanywhere.com",
-    "localhost",
-    "127.0.0.1",
-]
+ALLOWED_HOSTS = []
 
 # Application definition
 
@@ -49,7 +40,6 @@ DJANGO_APPS = [
 # Add local apps
 LOCAL_APPS = [
     "apps.menu",
-    "apps.orders",
 ]
 
 # Add third party apps
@@ -105,27 +95,6 @@ DATABASES = {
     }
 }
 
-CORS_ORIGIN_WHITELIST = [
-    "http://localhost:3000",
-    "http://localhost:8000",
-    "http://127.0.0.1:8000",
-    "http://127.0.0.1:3000",
-]
-
-CORS_ALLOWED_ORIGINS = [
-    "http://localhost:3000",
-    "http://localhost:8000",
-    "http://127.0.0.1:8000",
-    "http://127.0.0.1:3000",
-]
-
-CSRF_TRUSTED_ORIGINS = [
-    "http://localhost:3000",
-    "http://localhost:8000",
-    "http://127.0.0.1:8000",
-    "http://127.0.0.1:3000",
-    #'servidor.frontend.com'
-]
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
