@@ -1,6 +1,6 @@
 "use client"
 import Image from 'next/image';
-import React, { useState } from 'react'
+import React from 'react'
 import { FiAlignJustify } from "react-icons/fi";
 import { FiHome } from "react-icons/fi";
 import {
@@ -32,7 +32,7 @@ export const NavBar = () => {
                 <Menubar>
                     <MenubarMenu>
                         <MenubarTrigger>
-                            <FiAlignJustify data-collapse-toggle="navbar-hamburger" type="button" className="p-2 w-10 h-full text-sm text-gray-500 rounded-lg hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-label="Open main menu" aria-controls="navbar-hamburger" aria-expanded="false" />
+                            <FiAlignJustify data-collapse-toggle="navbar-hamburger" type="button" className="inline-flex items-center justify-center w-4 h-4 text-sm text-gray-500 rounded-m" aria-label="Open main menu" aria-controls="navbar-hamburger" aria-expanded="false" />
                         </MenubarTrigger>
                         <MenubarContent>
                             <MenubarItem>Menú</MenubarItem>
