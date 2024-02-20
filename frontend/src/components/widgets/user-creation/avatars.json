@@ -1,0 +1,29 @@
+{
+  "avatars":[
+    {
+      "id":1,
+      "name":"avatar1",
+      "url":"https://img.freepik.com/free-psd/3d-illustration-person-with-sunglasses_23-2149436180.jpg?w=740&t=st=1707861122~exp=1707861722~hmac=0a8cd5024b025481d767cca944bd775862bd4ac683703a8ae283898f1770567b"
+    },
+    {
+      "id":2,
+      "name":"avatar2",
+      "url":"https://img.freepik.com/free-psd/3d-illustration-person-with-sunglasses_23-2149436188.jpg?w=740&t=st=1707861236~exp=1707861836~hmac=0f224dd7a774e95420e595bd99d6c2de1a86d3e8ba5aa5d02588f2813049340a"
+    },
+    {
+      "id":3,
+      "name":"avatar3",
+      "url":"https://img.freepik.com/free-psd/3d-illustration-person-with-sunglasses_23-2149436178.jpg?w=740&t=st=1707861271~exp=1707861871~hmac=5e309959ee99f6387a6cd7371a0924c2fe32020bf83714f85717fb7d149e68e8"
+    },
+    {
+      "id":4,
+      "name":"avatar4",
+      "url":"https://img.freepik.com/free-psd/3d-illustration-person-with-rainbow-sunglasses_23-2149436181.jpg?w=740&t=st=1707861329~exp=1707861929~hmac=9f1e055065789b29eb0d1cda18bfbbccf5fc3f59fc9dc6997dac89b72fe8c490"
+    },
+    {
+      "id":5,
+      "name":"avatar5",
+      "url":"https://img.freepik.com/free-psd/3d-illustration-person-with-sunglasses_23-2149436200.jpg?w=740&t=st=1707861390~exp=1707861990~hmac=a71fe5745dff28948f55b2d0337fe1fe6c673dfa06c3a399eda5a1ed8bf0fe07"
+    }
+  ]
+}
