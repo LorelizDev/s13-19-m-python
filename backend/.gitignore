@@ -277,3 +277,5 @@ pip-selfcheck.json
 
 restaurant/settings/credentials
 # End of https://www.toptal.com/developers/gitignore/api/python,django,venv
+
+products/img
