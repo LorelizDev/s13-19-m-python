@@ -65,6 +65,19 @@ class UserAPIView(APIView):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
+class UsersInTableApiView(APIView):
+    def get(self, request, table_id):
+        try:
+            table = Table.objects.get(id=table_id)
+        except Table.DoesNotExist:
+            return Response(
+                {"error": "Table not exist"}, status=status.HTTP_404_NOT_FOUND
+            )
+        users = table.user_set.all()
+        serializer = UserInforSerializer(users, many=True)
+        return Response(serializer.data)
+
+
 class DeleteUserApiView(APIView):
     def delete(self, request, user_id):
         try:

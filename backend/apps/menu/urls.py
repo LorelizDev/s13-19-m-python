@@ -5,6 +5,7 @@ from .views import (
     InactiveTableListApiView,
     ClearTableApiView,
     UserAPIView,
+    UsersInTableApiView,
     DeleteUserApiView,
 )
 
@@ -17,8 +18,11 @@ urlpatterns = [
         name="inactive-tables-list",
     ),
     path(
-        "clear-table/<int:table_id>/", ClearTableApiView.as_view(), name="clear-table"
+        "users-in-table/<int:table_id>",
+        UsersInTableApiView.as_view(),
+        name="users-in-table",
     ),
+    path("clear-table/<int:table_id>", ClearTableApiView.as_view(), name="clear-table"),
     path("users/", UserAPIView.as_view(), name="user-create"),
     path("user/delete/<int:user_id>", DeleteUserApiView.as_view(), name="user-delete"),
 ]
