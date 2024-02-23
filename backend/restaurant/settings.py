@@ -28,7 +28,7 @@ SECRET_KEY = get_random_secret_key()
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = config("DEBUG", default=False, cast=bool)
 # DEBUG = os.environ.get("DEBUG", default=False)
-DEBUG = True
+DEBUG = True  # False  # True
 ALLOWED_HOSTS = [
     "s1319mpython.pythonanywhere.com",
     "localhost",

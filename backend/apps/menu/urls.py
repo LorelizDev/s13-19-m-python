@@ -1,8 +1,24 @@
 from django.urls import path
-from .views import TableAPIView, UserAPIView
+from .views import (
+    TableListAPIView,
+    ActiveTableListApiView,
+    InactiveTableListApiView,
+    ClearTableApiView,
+    UserAPIView,
+    DeleteUserApiView,
+)
 
 urlpatterns = [
-    path("tables/", TableAPIView.as_view(), name="table-list"),
+    path("tables/", TableListAPIView.as_view(), name="table-list"),
+    path("tables/active/", ActiveTableListApiView.as_view(), name="active-tables-list"),
+    path(
+        "tables/inactive/",
+        InactiveTableListApiView.as_view(),
+        name="inactive-tables-list",
+    ),
+    path(
+        "clear-table/<int:table_id>/", ClearTableApiView.as_view(), name="clear-table"
+    ),
     path("users/", UserAPIView.as_view(), name="user-create"),
-    path("users/<int:user_id>/", UserAPIView.as_view(), name="user-delete"),
+    path("user/delete/<int:user_id>", DeleteUserApiView.as_view(), name="user-delete"),
 ]
