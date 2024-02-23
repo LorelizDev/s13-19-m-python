@@ -1,5 +1,5 @@
 from django.db import models
-from apps.menu.models import User, Table
+from apps.reception.models import User, Table
 from apps.products.models import Product
 
 

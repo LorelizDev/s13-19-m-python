@@ -6,7 +6,7 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ("menu", "0001_initial"),
+        ("reception", "0001_initial"),
     ]
 
     operations = [

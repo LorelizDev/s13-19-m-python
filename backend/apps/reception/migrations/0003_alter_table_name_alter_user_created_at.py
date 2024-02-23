@@ -6,7 +6,7 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ("menu", "0002_user_created_at"),
+        ("reception", "0002_user_created_at"),
     ]
 
     operations = [
