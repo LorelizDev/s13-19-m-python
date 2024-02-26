@@ -14,7 +14,7 @@ from pathlib import Path
 from django.core.management.utils import get_random_secret_key
 from django.core.exceptions import ImproperlyConfigured
 
-# from decouple import config
+from decouple import config
 import os
 
 
@@ -26,9 +26,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = get_random_secret_key()
 
 # SECURITY WARNING: don't run with debug turned on in production!
-# DEBUG = config("DEBUG", default=False, cast=bool)
-# DEBUG = os.environ.get("DEBUG", default=False)
-DEBUG = True
+DEBUG = config("DEBUG", default=False, cast=bool)
+
 ALLOWED_HOSTS = [
     "s1319mpython.pythonanywhere.com",
     "localhost",
@@ -48,7 +47,7 @@ DJANGO_APPS = [
 
 # Add local apps
 LOCAL_APPS = [
-    "apps.menu",
+    "apps.reception",
     "apps.orders",
     "apps.payments",
     "apps.products",
@@ -60,6 +59,7 @@ THIRD_PARTY_APPS = [
     "corsheaders",
     "rest_framework_simplejwt",
     "rest_framework_simplejwt.token_blacklist",
+    "cloudinary_storage",
     "cloudinary",
 ]
 
@@ -173,3 +173,12 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 CORS_ORIGIN_ALLOW_ALL = True
 CORS_ALLOW_CREDENTIALS = True
+
+# Cloudinary cfg (.env file)
+CLOUDINARY_STORAGE = {
+    "CLOUD_NAME": config("CLOUD_NAME"),
+    "API_KEY": config("API_KEY"),
+    "API_SECRET": config("API_SECRET"),
+}
+
+DEFAULT_FILE_STORAGE = "cloudinary_storage.storage.MediaCloudinaryStorage"

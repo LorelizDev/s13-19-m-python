@@ -133,6 +133,7 @@ celerybeat.pid
 
 # Environments
 restaurant/.env
+.env
 .venv
 env/
 venv/
