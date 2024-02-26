@@ -50,6 +50,10 @@ class PaymentListCreateView(APIView):
             orders = OrderUser.objects.filter(id__in=order_ids, is_paid=False)
             # Calculate total amount by summing subtotals of all orders
             total_amount = sum(order.subtotal() for order in orders)
+            # Update is_paid field of related orders
+            for order in orders:
+                order.is_paid = True
+                order.save()
 
             payment = Payment(type_id=payment_type, total_amount=total_amount)
             payment.save()

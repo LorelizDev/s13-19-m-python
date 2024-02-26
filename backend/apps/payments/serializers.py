@@ -42,13 +42,8 @@ class PaymentSerializer(serializers.ModelSerializer):
         validated_data["orders"] = orders
         total_amount = sum(order.subtotal() for order in orders)
         validated_data["total_amount"] = total_amount
+
         payment = Payment.objects.create(**validated_data)
-
-        # Update is_paid field of related orders
-        for order in orders:
-            order.is_paid = True
-            order.save()
-
         payment.orders.add(*orders)
         payment.orders.set(orders)
         return payment
