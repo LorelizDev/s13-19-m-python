@@ -40,7 +40,7 @@ export const ProductsOrdered = ({ products }: Props) => {
             <div className="w-5/6 h-full  flex flex-col justify-between">
               <div className="w-fit flex flex-col cursor-pointer group ">
                 <Text type="subtitle">{product.name} asdeasd deasde</Text>
-                <span className="w-0 h-[2px] mb-1 bg-blue-400 group-hover:w-full  origin-left transition-all duration-300"></span>
+                <span className="w-0 h-[2px] mb-1 bg-blue-400 group-hover:w-full  origin-left transition-width duration-300"></span>
               </div>
               <Text type="regular">
                 Cantidad: <span className="font-bold">{product.quantity}</span>
@@ -63,7 +63,7 @@ export const ProductsOrdered = ({ products }: Props) => {
                       variant: "secondary",
                       className: "rounded-full",
                     }),
-                    "text-foreground  font-bold select-none "
+                    "text-foreground  font-bold select-none leading-6 "
                   )}
                 >
                   ${product.price}
