@@ -14,7 +14,7 @@ from pathlib import Path
 from django.core.management.utils import get_random_secret_key
 from django.core.exceptions import ImproperlyConfigured
 
-# from decouple import config
+from decouple import config
 import os
 
 
@@ -60,6 +60,7 @@ THIRD_PARTY_APPS = [
     "corsheaders",
     "rest_framework_simplejwt",
     "rest_framework_simplejwt.token_blacklist",
+    "cloudinary_storage",
     "cloudinary",
 ]
 
@@ -173,3 +174,12 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 CORS_ORIGIN_ALLOW_ALL = True
 CORS_ALLOW_CREDENTIALS = True
+
+# Cloudinary cfg (.env file)
+CLOUDINARY_STORAGE = {
+    "CLOUD_NAME": config("CLOUD_NAME"),
+    "API_KEY": config("API_KEY"),
+    "API_SECRET": config("API_SECRET"),
+}
+
+DEFAULT_FILE_STORAGE = "cloudinary_storage.storage.MediaCloudinaryStorage"
