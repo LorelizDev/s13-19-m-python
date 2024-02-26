@@ -16,7 +16,7 @@ class OrderUser(models.Model):
     created_at = models.DateTimeField(auto_now=True)
 
     def subtotal(self):
-        return sum([order.total_product() for order in self.order_products.all()])
+        return sum([order.total_product() for order in self.productorderuser_set.all()])
 
 
 class ProductOrderUser(models.Model):
