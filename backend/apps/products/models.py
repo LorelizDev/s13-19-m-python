@@ -15,6 +15,9 @@ class Product(models.Model):
     price = models.FloatField()
     categories = models.ManyToManyField(Category, through="Product_Category")
 
+    def __str__(self):
+        return self.product_name
+
 
 class Product_Category(models.Model):
     product_id = models.ForeignKey(Product, on_delete=models.CASCADE)

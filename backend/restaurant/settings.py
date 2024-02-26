@@ -26,9 +26,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = get_random_secret_key()
 
 # SECURITY WARNING: don't run with debug turned on in production!
-# DEBUG = config("DEBUG", default=False, cast=bool)
-# DEBUG = os.environ.get("DEBUG", default=False)
-DEBUG = True
+DEBUG = config("DEBUG", default=False, cast=bool)
+
 ALLOWED_HOSTS = [
     "s1319mpython.pythonanywhere.com",
     "localhost",
@@ -48,7 +47,7 @@ DJANGO_APPS = [
 
 # Add local apps
 LOCAL_APPS = [
-    "apps.menu",
+    "apps.reception",
     "apps.orders",
     "apps.payments",
     "apps.products",

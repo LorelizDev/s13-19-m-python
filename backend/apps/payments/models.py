@@ -1,6 +1,6 @@
 from django.db import models
 
-from apps.orders.models import OrderUser
+from ..orders.models import OrderUser
 
 
 class PaymentType(models.Model):
