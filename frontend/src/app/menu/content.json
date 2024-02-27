@@ -1,0 +1,140 @@
+{
+    "menu": {
+        "fields": {
+          "options": [
+            {
+              "id":1,
+              "icone": "<LuHome />",
+              "name": "Home",
+              "url": ""
+            },
+            {
+                "id":2,
+                "icone": "RiRestaurantFill",
+                "name": "Menu",
+                "url": ""
+              },
+              {
+                "id":3,
+                "icone": "FaRegBell",
+                "name": "Mozo",
+                "url": ""
+              },
+              {
+                "id":4,
+                "icone": "TbReportMoney",
+                "name": "Cuenta",
+                "url": ""
+              },
+              {
+                "id":5,
+                "icone": "IoChatbubbleOutline",
+                "name": "Reseñas",
+                "url": ""
+              },
+              {
+                "id":6,
+                "icone": "GoPeople",
+                "name": "Nosotros",
+                "url": ""
+              },
+              {
+                "id":7,
+                "icone": "CiCreditCard1",
+                "name": "Medios de Pagos",
+                "url": ""
+              }
+          ],
+          "seleccion":[
+            {
+                "id":"1",
+                "name": "Entradas",
+                "url" : ""
+            },
+            {
+                "id":"2",
+                "name": "Ensaladas",
+                "url" : ""
+            },
+            {
+                "id":"3",
+                "name": "Platos Principales",
+                "url" : ""
+            },
+            {
+                "id":"4",
+                "name": "Sopas y Cremas",
+                "url" : ""
+            },
+            {
+                "id":"5",
+                "name": "Postres",
+                "url" : ""
+            }
+
+          ],
+
+
+          "items": [
+            {"id": 1,
+            "imagen":"https://cdn.shopify.com/s/files/1/0078/5730/7737/files/80535-LasanZa_a_la_bolonZesa_receta_480x480.jpg?v=1657570613",
+            "name":"name",
+            "detalle": "Lorem ipsum dolor sit amet.",
+            "precio": 99
+            },
+
+            {"id": 2,
+            "imagen":"https://cdn.shopify.com/s/files/1/0078/5730/7737/files/80535-LasanZa_a_la_bolonZesa_receta_480x480.jpg?v=1657570613",
+            "name":"name",
+            "detalle": "Lorem ipsum dolor sit amet.",
+            "precio": 99
+            },
+
+            {"id": 3,
+            "imagen":"https://cdn.shopify.com/s/files/1/0078/5730/7737/files/80535-LasanZa_a_la_bolonZesa_receta_480x480.jpg?v=1657570613",
+            "name":"name",
+            "detalle": "Lorem ipsum dolor sit amet.",
+            "precio": 99
+            },
+
+            {"id": 4,
+            "imagen":"https://cdn.shopify.com/s/files/1/0078/5730/7737/files/80535-LasanZa_a_la_bolonZesa_receta_480x480.jpg?v=1657570613",
+            "name":"name",
+            "detalle": "Lorem ipsum dolor sit amet.",
+            "precio": 99
+            },
+
+            {"id": 5,
+            "imagen":"https://cdn.shopify.com/s/files/1/0078/5730/7737/files/80535-LasanZa_a_la_bolonZesa_receta_480x480.jpg?v=1657570613",
+            "name":"name",
+            "detalle": "Lorem ipsum dolor sit amet.",
+            "precio": 99
+            },
+
+            {"id": 6,
+            "imagen":"https://cdn.shopify.com/s/files/1/0078/5730/7737/files/80535-LasanZa_a_la_bolonZesa_receta_480x480.jpg?v=1657570613",
+            "name":"name",
+            "detalle": "Lorem ipsum dolor sit amet.",
+            "precio": 99
+            },
+
+            {"id": 7,
+            "imagen":"https://cdn.shopify.com/s/files/1/0078/5730/7737/files/80535-LasanZa_a_la_bolonZesa_receta_480x480.jpg?v=1657570613",
+            "name":"name",
+            "detalle": "Lorem ipsum dolor sit amet.",
+            "precio": 99
+            
+            },
+
+            {"id": 8,
+            "imagen":"https://cdn.shopify.com/s/files/1/0078/5730/7737/files/80535-LasanZa_a_la_bolonZesa_receta_480x480.jpg?v=1657570613",
+            "name":"name",
+            "detalle": "Lorem ipsum dolor sit amet.",
+            "precio": 99
+            }
+          ]
+        
+        }
+      }
+    
+  }
