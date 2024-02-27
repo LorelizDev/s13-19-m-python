@@ -13,10 +13,15 @@ class PaymentSerializer(serializers.ModelSerializer):
         max_digits=10, decimal_places=2, read_only=True
     )
     type_id = serializers.PrimaryKeyRelatedField(queryset=PaymentType.objects.all())
+    usernames = serializers.SerializerMethodField()
 
     class Meta:
         model = Payment
-        fields = "__all__"
+        fields = ("id", "type_id", "total_amount", "usernames", "orders", "created_at")
+
+    def get_usernames(self, payment):
+        usernames = [order.user_id.username for order in payment.orders.all()]
+        return usernames
 
     def validate(self, data):
         """
@@ -32,21 +37,6 @@ class PaymentSerializer(serializers.ModelSerializer):
             raise serializers.ValidationError("Invalid or paid order IDs")
 
         return data
-
-    def create(self, validated_data):
-        """
-        Create a payment instance.
-        """
-        order_ids = validated_data.pop("orders", [])
-        orders = OrderUser.objects.filter(id__in=order_ids, is_paid=False)
-        validated_data["orders"] = orders
-        total_amount = sum(order.subtotal() for order in orders)
-        validated_data["total_amount"] = total_amount
-
-        payment = Payment.objects.create(**validated_data)
-        payment.orders.add(*orders)
-        payment.orders.set(orders)
-        return payment
 
 
 class PaymentTypeSerializer(serializers.ModelSerializer):
