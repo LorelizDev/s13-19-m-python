@@ -137,7 +137,7 @@ class DeleteUserApiView(APIView):
     Delete a user from a table
     """
 
-    permission_classes = [IsAdminUser()]
+    permission_classes = [IsAdminUser]
 
     def delete(self, request, user_id):
         try:
