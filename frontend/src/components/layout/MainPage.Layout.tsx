@@ -13,7 +13,7 @@ export function MainPageLayout({ header, children }: Props) {
       <nav className="w-1/12 fixed">
         <Sidebar />
       </nav>
-      <div className="h-screen w-11/12 ml-auto overflow-x-hidden bg-accent  ">
+      <div className="max-h-screen w-11/12 ml-auto overflow-hidden bg-accent  ">
         {header}
         {children}
       </div>
