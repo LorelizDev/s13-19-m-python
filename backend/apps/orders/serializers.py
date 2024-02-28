@@ -12,7 +12,7 @@ class ProductOrderUserSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = ProductOrderUser
-        fields = ('id', 'order_id', 'product', 'quantity', 'comments', 'is_ready')
+        fields = ('id', 'product', 'quantity', 'comments', 'is_ready')
 
 class OrderUserSerializer(serializers.ModelSerializer):
     products = ProductOrderUserSerializer(many=True, read_only=True)
