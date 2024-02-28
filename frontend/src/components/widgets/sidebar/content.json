@@ -1,0 +1,46 @@
+{
+  "options": [
+    {
+      "id": 1,
+      "icon": "home",
+      "name": "Home",
+      "url": ""
+    },
+    {
+      "id": 2,
+      "icon": "restaurantMenu",
+      "name": "Menu",
+      "url": ""
+    },
+    {
+      "id": 3,
+      "icon": "bell",
+      "name": "Mozo",
+      "url": ""
+    },
+    {
+      "id": 4,
+      "icon": "bill",
+      "name": "Cuenta",
+      "url": ""
+    },
+    {
+      "id": 5,
+      "icon": "message",
+      "name": "Reseñas",
+      "url": ""
+    },
+    {
+      "id": 6,
+      "icon": "users",
+      "name": "Nosotros",
+      "url": ""
+    },
+    {
+      "id": 7,
+      "icon": "creditCard",
+      "name": "Medios de Pagos",
+      "url": ""
+    }
+  ]
+}

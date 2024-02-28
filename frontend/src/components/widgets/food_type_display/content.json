@@ -1,0 +1,29 @@
+{
+  "seleccion": [
+    {
+      "id": "1",
+      "name": "Entradas",
+      "url": ""
+    },
+    {
+      "id": "2",
+      "name": "Ensaladas",
+      "url": ""
+    },
+    {
+      "id": "3",
+      "name": "Platos Principales",
+      "url": ""
+    },
+    {
+      "id": "4",
+      "name": "Sopas y Cremas",
+      "url": ""
+    },
+    {
+      "id": "5",
+      "name": "Postres",
+      "url": ""
+    }
+  ]
+}

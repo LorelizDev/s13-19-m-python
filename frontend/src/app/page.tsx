@@ -1,30 +1,23 @@
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import Image from "next/image";
+import { Sidebar } from "@/components/widgets/sidebar";
+import { Events } from "@/components/widgets/events";
+import { Recommendations } from "../components/widgets/recomendations";
 
 export default function Home() {
   return (
-    <div className="">
-  
-      <main className="flex min-h-screen flex-col items-center justify-between p-24">
-        <Card>
-          <CardHeader>
-            <CardTitle>Card Title</CardTitle>
-            <CardDescription>Card Description</CardDescription>
-          </CardHeader>
-          <CardContent>
-            <p>Card Content</p>
-          </CardContent>
-          <CardFooter>
-            <p>Card Footer</p>
-          </CardFooter>
-        </Card>
+    <div className="flex justify-center">
+      <nav className="w-1/12 h-screen">
+        <Sidebar />
+      </nav>
+      <main className="w-11/12 h-screen bg-accent flex flex-col justify-evenly pl-5 ">
+        <div
+          data-slot="welcome"
+          id="welcome_message"
+          className="text-center text-2xl font-bold "
+        >
+          Bienvenido
+        </div>
+        <Recommendations />
+        <Events />
       </main>
     </div>
   );
