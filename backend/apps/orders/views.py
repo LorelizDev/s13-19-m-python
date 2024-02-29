@@ -26,6 +26,25 @@ class OrderUserDetailAPIView(APIView):
             return Response(status=status.HTTP_404_NOT_FOUND)
         
         
+    def patch(self, request, pk):
+        try:
+            order = OrderUser.objects.get(pk=pk)
+        except OrderUser.DoesNotExist:
+            return Response(
+                {"error": "Order not found."}, status=status.HTTP_404_NOT_FOUND
+            )
+
+        serializer = OrderUserSerializer(order, data=request.data, partial=True)
+
+        if serializer.is_valid():
+            serializer.save()
+            print(serializer.errors)
+            return Response(
+                {"message": "Order updated successfully!"}, status=status.HTTP_200_OK
+            )
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+        
+        
         
 class OrderCreateView(APIView):
     """
@@ -42,11 +61,32 @@ class OrderCreateView(APIView):
         serializer = OrderUserSerializer(data=request.data)
 
         if serializer.is_valid():
-            # Implementar la lógica de creación de la orden
-            # ...
+            
+            serializer.save()
             return Response(
                 {"message": "Order created successfully!"},
                 status=status.HTTP_201_CREATED,
             )
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    
+    
+    
+class OrderDeleteView(APIView):
+    """
+    API endpoint to delete an order.
+    """
 
+    def delete(self, request, pk):
+        """
+        Delete an order based on provided order ID.
+        """
+        try:
+            order = OrderUser.objects.get(pk=pk)
+        except OrderUser.DoesNotExist:
+            return Response(
+                {"error": "Order not found."}, status=status.HTTP_404_NOT_FOUND
+            )
+            
+        return Response(
+            {"message": "Order deleted successfully!"}, status=status.HTTP_204_NO_CONTENT
+        )
