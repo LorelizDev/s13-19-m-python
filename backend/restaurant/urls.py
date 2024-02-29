@@ -47,6 +47,7 @@ urlpatterns = [
     path("api/payment/", include("apps.payments.urls")),
     path("api/products/", include("apps.products.routers")),
     path("api/orders/", include("apps.orders.urls")),
+    path("api/reviews/", include("apps.reviews.urls")),
 ]
 
 url_swagger = [
