@@ -1,5 +1,6 @@
 # Create your views here.
 from django.shortcuts import render
+
 # Create your views here.
 from rest_framework import status
 from rest_framework.views import APIView
@@ -24,9 +25,8 @@ class OrderUserDetailAPIView(APIView):
             return Response(serializer.data)
         except OrderUser.DoesNotExist:
             return Response(status=status.HTTP_404_NOT_FOUND)
-        
-        
-        
+
+
 class OrderCreateView(APIView):
     """
     API endpoint to create an order.
@@ -44,9 +44,9 @@ class OrderCreateView(APIView):
         if serializer.is_valid():
             # Implementar la lógica de creación de la orden
             # ...
+            serializer.save()
             return Response(
                 {"message": "Order created successfully!"},
                 status=status.HTTP_201_CREATED,
             )
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
