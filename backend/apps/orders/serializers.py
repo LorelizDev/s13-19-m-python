@@ -1,6 +1,5 @@
 from rest_framework import serializers
 from .models import OrderUser, ProductOrderUser
-from apps.products.models import Product
 from apps.products.serializers import ProductSerializer
 
 
