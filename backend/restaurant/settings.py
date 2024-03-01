@@ -52,6 +52,7 @@ LOCAL_APPS = [
     "apps.orders",
     "apps.payments",
     "apps.products",
+    "apps.reviews",
 ]
 
 # Add third party apps
