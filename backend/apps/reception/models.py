@@ -1,4 +1,8 @@
 from django.db import models
+from django.db.models.signals import post_save
+from django.dispatch import receiver
+from rest_framework.decorators import permission_classes
+from rest_framework.permissions import IsAdminUser
 
 
 # Table Models
@@ -42,7 +46,7 @@ class Table(models.Model):
         return self.user_set.exists()
 
 
-# Table Models
+# User Models
 class User(models.Model):
     id = models.AutoField(primary_key=True)
     table = models.ForeignKey(Table, on_delete=models.CASCADE)
@@ -58,4 +62,16 @@ class User(models.Model):
         """
         self.table = table
         self.save()
+        table.activate()
+
+
+@receiver(post_save, sender=User)
+@permission_classes([IsAdminUser()])
+def activate_table(sender, instance, **kwargs):
+    """
+    Using Django signals, it can be assigned the status True to a Table
+    when use the Admin console
+    """
+    table = instance.table
+    if table and not table.is_active:
         table.activate()

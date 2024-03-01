@@ -4,9 +4,8 @@ from rest_framework import status
 from drf_yasg.utils import swagger_auto_schema
 from rest_framework.permissions import IsAdminUser
 from rest_framework.decorators import permission_classes, parser_classes
-from rest_framework.parsers import JSONParser
 from .models import Table, User
-from .serializers import TableInfoSerializer, UserInforSerializer
+from .serializers import TableInfoSerializer, UserInfoSerializer
 
 
 # Table views
@@ -17,6 +16,7 @@ class TableListAPIView(APIView):
 
     permission_classes = [IsAdminUser]
 
+    @swagger_auto_schema(response={200: TableInfoSerializer(many=True).data})
     def get(self, request):
         tables = Table.objects.all()
         serializer = TableInfoSerializer(tables, many=True)
@@ -30,6 +30,7 @@ class ActiveTableListApiView(APIView):
 
     permission_classes = [IsAdminUser]
 
+    @swagger_auto_schema(response={200: TableInfoSerializer(many=True).data})
     def get(self, request):
         active_tables = Table.objects.filter(is_active=True)
         serializer = TableInfoSerializer(active_tables, many=True)
@@ -39,9 +40,10 @@ class ActiveTableListApiView(APIView):
 class InactiveTableListApiView(APIView):
     """
     Show only the inactive tables.
-    All user can watch the Inactive tables
+    All users can watch the Inactive tables
     """
 
+    @swagger_auto_schema(response={200: TableInfoSerializer(many=True).data})
     def get(self, request):
         active_tables = Table.objects.filter(is_active=False)
         serializer = TableInfoSerializer(active_tables, many=True)
@@ -55,6 +57,7 @@ class ClearTableApiView(APIView):
 
     permission_classes = [IsAdminUser]
 
+    @swagger_auto_schema(response={204: {"message": "Table was cleaned, successfully"}})
     def post(self, request, table_id):
         try:
             table = Table.objects.get(id=table_id, is_active=True)
@@ -71,7 +74,10 @@ class ClearTableApiView(APIView):
                 status=status.HTTP_400_BAD_REQUEST,
             )
         table.clear_table()
-        return Response({"message": "Table was cleaned, successfully"})
+        return Response(
+            {"message": "Table was cleaned, successfully"},
+            status=status.HTTP_204_NO_CONTENT,
+        )
 
 
 # User views
@@ -82,16 +88,17 @@ class UserAPIView(APIView):
     """
 
     @permission_classes([IsAdminUser()])
+    @swagger_auto_schema(response={200: UserInfoSerializer(many=True).data})
     def get(self, request):
         """
         Get all users/clients
         """
         users = User.objects.all()
-        serializer = UserInforSerializer(users, many=True)
+        serializer = UserInfoSerializer(users, many=True)
         return Response(serializer.data)
 
     @swagger_auto_schema(
-        request_body=UserInforSerializer, response={201: UserInforSerializer()}
+        request_body=UserInfoSerializer, response={201: UserInfoSerializer()}
     )
     def post(self, request):
         """
@@ -105,7 +112,7 @@ class UserAPIView(APIView):
               "table": 1, # table_id
             }
         """
-        serializer = UserInforSerializer(data=request.data)
+        serializer = UserInfoSerializer(data=request.data)
         if serializer.is_valid():
             user = serializer.save()
             # assign table to user
@@ -120,6 +127,7 @@ class UsersInTableApiView(APIView):
     Show users in a table
     """
 
+    @swagger_auto_schema(request_body=Table.id, response={201: UserInfoSerializer()})
     def get(self, request, table_id):
         try:
             table = Table.objects.get(id=table_id)
@@ -128,7 +136,7 @@ class UsersInTableApiView(APIView):
                 {"error": "Table not exist"}, status=status.HTTP_404_NOT_FOUND
             )
         users = table.user_set.all()
-        serializer = UserInforSerializer(users, many=True)
+        serializer = UserInfoSerializer(users, many=True)
         return Response(serializer.data)
 
 
@@ -148,11 +156,15 @@ class DeleteUserApiView(APIView):
             )
         table = user.table
         if table.has_users():
+            user_deleted = user
             user.delete()
             # check if table not has users
             if not table.has_users():
                 table.deactivate()
-            return Response(status=status.HTTP_204_NO_CONTENT)
+            return Response(
+                f"{user_deleted.__str__()} from {table.__str__()}",
+                status=status.HTTP_202_ACCEPTED,
+            )
         else:
             return Response(
                 {"error": "It's not possible delete the user from a table"},
