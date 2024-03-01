@@ -127,7 +127,7 @@ class UsersInTableApiView(APIView):
     Show users in a table
     """
 
-    @swagger_auto_schema(request_body=Table.id, response={201: UserInfoSerializer()})
+    @swagger_auto_schema(response={201: UserInfoSerializer()})
     def get(self, request, table_id):
         try:
             table = Table.objects.get(id=table_id)
