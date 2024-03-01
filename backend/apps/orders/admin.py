@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import OrderUser, ProductOrderUser
+from .models import *
 
-admin.site.register(OrderUser)
-admin.site.register(ProductOrderUser)
+models_to_register = [OrderUser, OrderProducts]
+admin.site.register(models_to_register)

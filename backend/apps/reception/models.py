@@ -67,7 +67,7 @@ class User(models.Model):
 
 @receiver(post_save, sender=User)
 @permission_classes([IsAdminUser()])
-def activate_table(sender, instance, **kwargs):
+def activate_table(sender, instance, created, **kwargs):
     """
     Using Django signals, it can be assigned the status True to a Table
     when use the Admin console

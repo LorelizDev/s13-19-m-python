@@ -1,27 +1,16 @@
 from rest_framework import serializers
-from .models import OrderUser, ProductOrderUser
-from apps.products.serializers import ProductSerializer
+from .models import OrderUser, OrderProducts
 
 
-class ProductOrderUserSerializer(serializers.ModelSerializer):
-    product = ProductSerializer(read_only=True)
-
+class OrderProductsSerializer(serializers.ModelSerializer):
     class Meta:
-        model = ProductOrderUser
-        fields = ("id", "product", "quantity", "comments", "is_ready")
+        model = OrderProducts
+        fields = "__all__"
 
 
 class OrderUserSerializer(serializers.ModelSerializer):
-    products = ProductOrderUserSerializer(many=True, read_only=True)
+    products = OrderProductsSerializer(many=True, source="orderproducts_set")
 
     class Meta:
         model = OrderUser
-        fields = (
-            "id",
-            "table_id",
-            "user_id",
-            "products",
-            "is_paid",
-            "created_at",
-            "subtotal",
-        )
+        fields = "__all__"
