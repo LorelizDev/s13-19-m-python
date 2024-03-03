@@ -10,6 +10,9 @@ class OrderUser(models.Model):
     is_paid = models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now=True)
 
+    def subtotal(self):
+        return sum([order.total_product() for order in self.orderproducts_set.all()])
+
 
 # Creaating individual order for individual user
 class OrderProducts(models.Model):
@@ -17,4 +20,10 @@ class OrderProducts(models.Model):
     quantity = models.IntegerField(default=1)
     comments = models.TextField(blank=True, null=True)
     is_ready = models.BooleanField(default=False)
-    order_user = models.ForeignKey(OrderUser, on_delete=models.CASCADE, default=1)
+    order_user_id = models.ForeignKey(OrderUser, on_delete=models.CASCADE, default=1)
+
+    def __str__(self):
+        return self.product.product_name
+
+    def total_product(self):
+        return self.quantity * self.product.price

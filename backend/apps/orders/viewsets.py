@@ -22,3 +22,24 @@ class OrderProductViewset(viewsets.ModelViewSet):
 class UserOrderListViewset(viewsets.ModelViewSet):
     queryset = OrderUser.objects.all()
     serializer_class = OrderUserSerializer
+
+
+class OrdersByTableViewset(viewsets.ModelViewSet):
+    queryset = OrderUser.objects.all()
+    serializer_class = OrdersByTableSerializer
+
+    def list(self, request):
+        orders = OrderUser.objects.all()
+        orders_by_table = {}
+
+        for order in orders:
+            table_id = order.table_id.id
+            if table_id not in orders_by_table:
+                orders_by_table[table_id] = {"table_id": table_id, "products": []}
+
+            products = OrderProductsSerializer(
+                order.orderproducts_set.all(), many=True
+            ).data
+            orders_by_table[table_id]["products"].extend(products)
+
+        return Response(orders_by_table.values(), status=status.HTTP_200_OK)

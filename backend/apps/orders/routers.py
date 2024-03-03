@@ -10,6 +10,9 @@ router.register(
 router.register(
     r"list_of_orders", viewsets.UserOrderListViewset, basename="List of orders"
 )
+router.register(
+    r"orders_by_table", viewsets.OrdersByTableViewset, basename="Orders by table"
+)
 
 
 urlpatterns = router.urls
