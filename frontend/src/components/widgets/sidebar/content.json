@@ -8,21 +8,21 @@
     },
     {
       "id": 2,
+      "icon": "table",
+      "name": "Mesa",
+      "url": "/table"
+    },
+    {
+      "id": 3,
       "icon": "restaurantMenu",
       "name": "Menu",
       "url": "/menu"
     },
     {
-      "id": 3,
+      "id": 4,
       "icon": "bell",
       "name": "Mozo",
       "url": ""
-    },
-    {
-      "id": 4,
-      "icon": "bill",
-      "name": "Cuenta",
-      "url": "/summary"
     },
     {
       "id": 5,
@@ -35,12 +35,6 @@
       "icon": "users",
       "name": "Nosotros",
       "url": "about"
-    },
-    {
-      "id": 7,
-      "icon": "creditCard",
-      "name": "Medios de Pagos",
-      "url": "payments"
     }
   ]
 }

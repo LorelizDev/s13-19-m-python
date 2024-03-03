@@ -2,28 +2,28 @@
   "seleccion": [
     {
       "id": "1",
-      "name": "Entradas",
-      "url": ""
+      "name": "Almuerzos",
+      "url": "?category=lunch"
     },
     {
       "id": "2",
-      "name": "Ensaladas",
-      "url": ""
+      "name": "Bebidas",
+      "url": "?category=drinks"
     },
     {
       "id": "3",
-      "name": "Platos Principales",
-      "url": ""
+      "name": "Desayunos",
+      "url": "?category=breakfast"
     },
     {
       "id": "4",
-      "name": "Sopas y Cremas",
-      "url": ""
+      "name": "Meriendas",
+      "url": "?category=snacks"
     },
     {
       "id": "5",
-      "name": "Postres",
-      "url": ""
+      "name": "Cenas",
+      "url": "?category=dinner"
     }
   ]
 }
