@@ -112,4 +112,4 @@ Accede al enlace donde se despliega el entorno backend. En esta ocasión se impl
 ejecutar las distintas peticiones desde la interfaz de frontend.
 
 > ## Endpoints desarrollados
->
+> <img src="assets/images/enpoints_API_list.png" width="300" height="auto">
