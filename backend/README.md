@@ -1,5 +1,7 @@
 > # CONFIGURACION BACKEND
-Este proyecto backend esta desarrollado con las tecnologias pyhton 3.10+, **[Django](https://www.djangoproject.com/)** y su base de datos **Sqlite**
+Este proyecto backend esta desarrollado con las tecnologias pyhton 3.10+, **[Django](https://www.djangoproject.com/)**
+y su base de datos **Sqlite**. Su despliegue remoto se llevo a cabo en [pythonanywhere.com](https:www.pythonanywhere.com)
+bajo https://s1319mpython.pythonanywhere.com/.
 
 > ## Uso Local
 Para uso local se emplearán las herramientas listadas en los archivos [requirements.txt](requirements.txt),
@@ -62,7 +64,7 @@ poetry install
 ```
 
 ### Configuración de Pre-commit
-[Pre-commit](https://pre-commit.com/) es un marco para gestionar y mantener enlaces de confirmación previa en varios idiomas.
+[Pre-commit](https://pre-commit.com/) es un marco para gestionar y mantener enlaces de confirmación previa en varios lenguajes.
 
 > _"Git hook scripts are useful for identifying simple issues before submission to code review. We run our hooks on every
 commit to automatically point out issues in code such as missing semicolons, trailing whitespace, and debug statements"_
@@ -81,7 +83,7 @@ Arranca el servidor de Django.
 python manage.py runserver
 ```
 
-> ## Uso en Web
+> ## Uso remoto
 
 Accede al enlace donde se despliega el entorno backend. En esta ocasión se implementó el entorno de
 [pythonanywhere](https://www.pythonanywhere.com/):
