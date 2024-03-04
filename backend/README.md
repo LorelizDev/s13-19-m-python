@@ -1,7 +1,8 @@
 > # CONFIGURACION BACKEND
-Este proyecto backend esta desarrollado con las tecnologias pyhton 3.10+, **[Django](https://www.djangoproject.com/)**
-y su base de datos **Sqlite**. Su despliegue remoto se llevo a cabo en [pythonanywhere.com](https:www.pythonanywhere.com)
-bajo https://s1319mpython.pythonanywhere.com/.
+Este proyecto backend esta desarrollado con las tecnologias Python 3.10+, **[Django](https://www.djangoproject.com/)**,
+base de datos **Sqlite**, [Cloudinary](https://cloudinary.com/) para gestión de imagenes, y documentación de API
+con Swagger ([drf-yasg - Yet another Swagger generator](https://drf-yasg.readthedocs.io/en/stable/readme.html)). Su despliegue remoto se llevo a cabo en [pythonanywhere.com](https:www.pythonanywhere.com)
+bajo el contenedor https://s1319mpython.pythonanywhere.com/.
 
 > ## Uso Local
 Para uso local se emplearán las herramientas listadas en los archivos [requirements.txt](requirements.txt),
@@ -91,4 +92,5 @@ Accede al enlace donde se despliega el entorno backend. En esta ocasión se impl
 * Cliquea https://s1319mpython.pythonanywhere.com/ para acceder a los diferentes endpoints que se desarrollarón para
 ejecutar las distintas peticiones desde la interfaz de frontend.
 
-### Endpoints desarrollados
+> ## Endpoints desarrollados
+>
