@@ -36,7 +36,7 @@ class ReviewUpdateView(APIView):
         request_body=ReviewSerializer,
         responses={200: ReviewSerializer},
     )
-    def put(self, request, pk):
+    def patch(self, request, pk):
         try:
             review = Review.objects.get(id=pk)
             serializer = ReviewSerializer(instance=review, data=request.data)
