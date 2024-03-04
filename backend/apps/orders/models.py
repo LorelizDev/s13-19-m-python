@@ -10,6 +10,9 @@ class OrderUser(models.Model):
     is_paid = models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now=True)
 
+    def __str__(self):
+        return self.user_id.username
+
     def subtotal(self):
         return sum([order.total_product() for order in self.orderproducts_set.all()])
 

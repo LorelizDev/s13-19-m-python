@@ -8,7 +8,8 @@ class OrderProductsSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = OrderProducts
-        fields = ("id", "product_name", "quantity", "comments", "is_ready")
+        # fields = ("id", "product_name", "quantity", "comments", "is_ready","order_user_id")
+        fields = "__all__"
 
 
 class OrderUserSerializer(serializers.ModelSerializer):
