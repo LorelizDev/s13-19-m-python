@@ -46,7 +46,7 @@ poetry --version
 
 _Nota: La versión puede cambiar al momento de instalar_
 
-* Agrega la siguiente configuracion en la terminal
+* Agrega la siguiente configuracion en la terminal,
 
 ```sh
 poetry config virtualenvs.in-project true
@@ -78,7 +78,26 @@ poetry run pre-commit install
 
 ### Iniciar el servidor
 
-Arranca el servidor de Django.
+Si es la primera vez que descargas el repositorio, es muy importante que realice las migraciones de los diferentes
+modelos, vistas y conectores para la creación/registro de datos en la base de datos.
+
+* Ejecutar migraciones
+
+````sh
+python manage.py makemigrations
+python manage.py migrate
+````
+* Crear usuario Administrador (super usuario)
+
+````sh
+python manage.py createsuperuser
+````
+
+Debes completar información basica:
+
+<img src="assets/images/admin_setup.png" width="250" height="auto">
+
+* Levantar el servidor de Django.
 
 ```sh
 python manage.py runserver
