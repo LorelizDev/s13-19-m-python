@@ -21,6 +21,7 @@ class ProductNameField(serializers.RelatedField):
 
 class OrderProductsSerializer(serializers.ModelSerializer):
     product_name = serializers.CharField(source="product.product_name", read_only=True)
+    user_order = serializers.CharField(source="order_user_id.user_id", read_only=True)
 
     class Meta:
         model = OrderProducts
