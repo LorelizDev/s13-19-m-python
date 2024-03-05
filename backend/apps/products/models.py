@@ -1,4 +1,5 @@
 from django.db import models
+from cloudinary.models import CloudinaryField
 
 
 class Category(models.Model):
@@ -10,7 +11,7 @@ class Category(models.Model):
 
 class Product(models.Model):
     product_name = models.CharField(max_length=200)
-    image = models.ImageField(null=True, blank=True, upload_to="assets/images/products")
+    image = CloudinaryField("image")
     description = models.TextField(blank=True)
     price = models.FloatField()
     categories = models.ManyToManyField(Category, through="Product_Category")

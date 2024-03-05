@@ -13,7 +13,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 from pathlib import Path
 from django.core.management.utils import get_random_secret_key
 from django.core.exceptions import ImproperlyConfigured
-
+import cloudinary
 from decouple import config
 import os
 
@@ -177,10 +177,9 @@ CORS_ORIGIN_ALLOW_ALL = True
 CORS_ALLOW_CREDENTIALS = True
 
 # Cloudinary cfg (.env file)
-CLOUDINARY_STORAGE = {
-    "CLOUD_NAME": config("CLOUD_NAME"),
-    "API_KEY": config("API_KEY"),
-    "API_SECRET": config("API_SECRET"),
-}
-
-DEFAULT_FILE_STORAGE = "cloudinary_storage.storage.MediaCloudinaryStorage"
+cloudinary.config(
+    cloud_name=config("CLOUD_NAME"),
+    api_key=config("API_KEY"),
+    api_secret=config("API_SECRET"),
+    api_proxy="http://proxy.server:3128",
+)
