@@ -7,8 +7,9 @@ from ..products.models import Product
 class OrderUser(models.Model):
     table_id = models.ForeignKey(Table, on_delete=models.CASCADE)
     user_id = models.ForeignKey(User, on_delete=models.CASCADE)
+    products = models.ManyToManyField(Product, through="OrderProducts")
     is_paid = models.BooleanField(default=False)
-    created_at = models.DateTimeField(auto_now=True)
+    created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return self.user_id.username

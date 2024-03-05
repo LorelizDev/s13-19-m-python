@@ -49,9 +49,9 @@ DJANGO_APPS = [
 # Add local apps
 LOCAL_APPS = [
     "apps.reception",
+    "apps.products",
     "apps.orders",
     "apps.payments",
-    "apps.products",
     "apps.reviews",
 ]
 

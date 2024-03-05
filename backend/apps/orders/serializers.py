@@ -1,6 +1,22 @@
+from apps.products.models import Product
 from rest_framework import serializers
 from .models import OrderUser, OrderProducts
 from django.db.models import Sum
+
+
+class ProductNameField(serializers.RelatedField):
+    # Searching product's name with id given
+    def to_representation(self, value):
+        return value.product_name
+
+    # Formatting product name to use inside serializer (Object from product model)
+    def to_internal_value(self, data):
+        try:
+            product_instance = Product.objects.filter(product_name=data).first()
+            product = Product.objects.get(id=product_instance.id)
+            return product
+        except Product.DoesNotExist:
+            raise serializers.ValidationError("Product does not exist.")
 
 
 class OrderProductsSerializer(serializers.ModelSerializer):
@@ -8,24 +24,22 @@ class OrderProductsSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = OrderProducts
-        # fields = ("id", "product_name", "quantity", "comments", "is_ready","order_user_id")
         fields = "__all__"
 
 
 class OrderUserSerializer(serializers.ModelSerializer):
-    products = OrderProductsSerializer(many=True, source="orderproducts_set")
+    products = ProductNameField(queryset=Product.objects.all(), many=True)
 
     class Meta:
         model = OrderUser
-        fields = (
-            "id",
-            "products",
-            "is_paid",
-            "created_at",
-            "table_id",
-            "user_id",
-            "subtotal",
-        )
+        fields = "__all__"
+
+    def create(self, validated_data):
+        products_data = validated_data.pop("products")
+        order_user = OrderUser.objects.create(**validated_data)
+        for product in products_data:
+            order_user.products.add(product)
+        return order_user
 
 
 class OrdersByTableSerializer(serializers.ModelSerializer):
@@ -37,6 +51,22 @@ class OrdersByTableSerializer(serializers.ModelSerializer):
 
     def get_products(self, obj):
         orders = OrderUser.objects.filter(table_id=obj.table_id).distinct()
+        products = OrderProducts.objects.filter(order_user_id__in=orders)
+        grouped_products = products.values(
+            "product__product_name", "quantity", "comments", "is_ready"
+        ).annotate(total_quantity=Sum("quantity"))
+        return grouped_products
+
+
+class OrdersByUserSerializer(serializers.ModelSerializer):
+    products = serializers.SerializerMethodField()
+
+    class Meta:
+        model = OrderUser
+        fields = ["user_id", "products"]
+
+    def get_products(self, obj):
+        orders = OrderUser.objects.filter(user_id=obj.user_id).distinct()
         products = OrderProducts.objects.filter(order_user_id__in=orders)
         grouped_products = products.values(
             "product__product_name", "quantity", "comments", "is_ready"
