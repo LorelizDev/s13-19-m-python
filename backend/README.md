@@ -102,6 +102,20 @@ Debes completar información basica:
 ```sh
 python manage.py runserver
 ```
+> #### Uso general:
+> Una vez configurado el repositorio de manera local, para las siguientes pruebas solo debes seguir los
+> pasos de activar entorno, instalar dependencias (verificar paquetes instalados) y levantar servidor.
+>
+> Opcional: Ejecutar migraciones, siempre y cuando al levantar el servidor lo indique o se hayan generado cambios en la
+> base de datos respecto a las relaciones o modelos.
+>
+> ###### Pasos:
+> 1) ```poetry shell```
+> 2) ```poetry install```, de ser requerido para verificar nuevos paquetes
+> 3) ```python manage.py makemigrations``` *_opcional_
+> 4) ```python manage.py migrate```, *_opcional_
+> 5) ```python manage.py runserver```
+
 
 > ## Uso remoto
 
@@ -112,4 +126,4 @@ Accede al enlace donde se despliega el entorno backend. En esta ocasión se impl
 ejecutar las distintas peticiones desde la interfaz de frontend.
 
 > ## Endpoints desarrollados
-> <img src="assets/images/enpoints_API_list.png" width="300" height="auto">
+<img src="assets/images/enpoints_API_list.png" width="350" height="auto">
