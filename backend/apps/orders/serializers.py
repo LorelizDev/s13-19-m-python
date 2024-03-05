@@ -44,10 +44,11 @@ class OrderUserSerializer(serializers.ModelSerializer):
 
 class OrdersByTableSerializer(serializers.ModelSerializer):
     products = serializers.SerializerMethodField()
+    total = serializers.SerializerMethodField()
 
     class Meta:
         model = OrderUser
-        fields = ["table_id", "products"]
+        fields = ["table_id", "total", "products"]
 
     def get_products(self, obj):
         orders = OrderUser.objects.filter(table_id=obj.table_id).distinct()
@@ -57,13 +58,20 @@ class OrdersByTableSerializer(serializers.ModelSerializer):
         ).annotate(total_quantity=Sum("quantity"))
         return grouped_products
 
+    def get_total(self, obj):
+        orders = OrderUser.objects.filter(table_id=obj.table_id).distinct()
+        products = OrderProducts.objects.filter(order_user_id__in=orders)
+        subtotal = products.aggregate(total=Sum("product__price"))
+        return subtotal["total"]
+
 
 class OrdersByUserSerializer(serializers.ModelSerializer):
     products = serializers.SerializerMethodField()
+    subtotal = serializers.SerializerMethodField()
 
     class Meta:
         model = OrderUser
-        fields = ["user_id", "products"]
+        fields = ["user_id", "subtotal", "products"]
 
     def get_products(self, obj):
         orders = OrderUser.objects.filter(user_id=obj.user_id).distinct()
@@ -72,3 +80,9 @@ class OrdersByUserSerializer(serializers.ModelSerializer):
             "product__product_name", "quantity", "comments", "is_ready"
         ).annotate(total_quantity=Sum("quantity"))
         return grouped_products
+
+    def get_subtotal(self, obj):
+        orders = OrderUser.objects.filter(user_id=obj.user_id).distinct()
+        products = OrderProducts.objects.filter(order_user_id__in=orders)
+        subtotal = products.aggregate(total=Sum("product__price"))
+        return subtotal["total"]

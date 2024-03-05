@@ -30,12 +30,17 @@ class OrdersByTableViewset(viewsets.ModelViewSet):
         for order in orders:
             table_id = order.table_id.id
             if table_id not in orders_by_table:
-                orders_by_table[table_id] = {"table_id": table_id, "products": []}
+                orders_by_table[table_id] = {
+                    "table_id": table_id,
+                    "total": 0,
+                    "products": [],
+                }
 
             products = OrderProductsSerializer(
                 order.orderproducts_set.all(), many=True
             ).data
             orders_by_table[table_id]["products"].extend(products)
+            orders_by_table[table_id]["total"] += order.subtotal()
 
         return Response(orders_by_table.values(), status=status.HTTP_200_OK)
 
@@ -51,11 +56,16 @@ class OrdersByUserViewset(viewsets.ModelViewSet):
         for order in orders:
             user_id = order.user_id.id
             if user_id not in orders_by_user:
-                orders_by_user[user_id] = {"user_id": user_id, "products": []}
+                orders_by_user[user_id] = {
+                    "user_id": user_id,
+                    "subtotal": 0,
+                    "products": [],
+                }
 
             products = OrderProductsSerializer(
                 order.orderproducts_set.all(), many=True
             ).data
             orders_by_user[user_id]["products"].extend(products)
+            orders_by_user[user_id]["subtotal"] += order.subtotal()
 
         return Response(orders_by_user.values(), status=status.HTTP_200_OK)
