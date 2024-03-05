@@ -3,28 +3,31 @@ from ..reception.models import User, Table
 from ..products.models import Product
 
 
+# Grouping every product from individual user
 class OrderUser(models.Model):
-    id = models.AutoField(primary_key=True)
-    table_id = models.ForeignKey(
-        Table, on_delete=models.CASCADE, default=0, null=False, blank=False
-    )
-    user_id = models.ForeignKey(
-        User, on_delete=models.CASCADE, default=0, null=False, blank=False
-    )
-    products = models.ManyToManyField(Product, through="ProductOrderUser")
+    table_id = models.ForeignKey(Table, on_delete=models.CASCADE)
+    user_id = models.ForeignKey(User, on_delete=models.CASCADE)
+    products = models.ManyToManyField(Product, through="OrderProducts")
     is_paid = models.BooleanField(default=False)
-    created_at = models.DateTimeField(auto_now=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.user_id.username
 
     def subtotal(self):
-        return sum([order.total_product() for order in self.productorderuser_set.all()])
+        return sum([order.total_product() for order in self.orderproducts_set.all()])
 
 
-class ProductOrderUser(models.Model):
-    order_id = models.ForeignKey(OrderUser, on_delete=models.CASCADE)
-    product_id = models.ForeignKey(Product, on_delete=models.CASCADE)
+# Creaating individual order for individual user
+class OrderProducts(models.Model):
+    product = models.ForeignKey(Product, on_delete=models.CASCADE)
     quantity = models.IntegerField(default=1)
     comments = models.TextField(blank=True, null=True)
     is_ready = models.BooleanField(default=False)
+    order_user_id = models.ForeignKey(OrderUser, on_delete=models.CASCADE, default=1)
+
+    def __str__(self):
+        return self.product.product_name
 
     def total_product(self):
-        return self.quantity * self.product_id.price
+        return self.quantity * self.product.price
