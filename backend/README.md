@@ -127,3 +127,15 @@ ejecutar las distintas peticiones desde la interfaz de frontend.
 
 > ## Endpoints desarrollados
 <img src="assets/images/enpoints_API_list.png" width="350" height="auto">
+
+> ## Equipo
+
+El proyecto de backend fue desarrollado por el siguiente talento:
+
+
+| Talento                | Github                                              | Linkedin                                                                             |
+|------------------------|-----------------------------------------------------|--------------------------------------------------------------------------------------|
+| [Lorena Acosta]()      | [LorelizDev](https://github.com/LorelizDev)         | [silvia-lorena-acosta-ortiz](https://www.linkedin.com/in/silvia-lorena-acosta-ortiz) |
+| [Crispthofer Rincon]() | [CrispthoAlex](https://github.com/CrispthoAlex)     | [carmurrain](https://www.linkedin.com/in/carmurrain)                                 |
+| [Ezequiel Seminara]()  | [eseminara](https://github.com/eseminara)           | [e-seminara](https://www.linkedin.com/in/e-seminara)                                 |
+| [Lucas Simoes]()       | [LucasSimoesMDP](https://github.com/LucasSimoesMDP) | [lucas-gabriel-simoes](https://www.linkedin.com/in/lucas-gabriel-simoes)             |
