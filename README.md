@@ -8,6 +8,9 @@
 **Comanda Click** es una aplicación web diseñada para simplificar y agilizar el proceso de pedidos en restaurantes. Nuestra plataforma permite a los clientes realizar sus pedidos de manera sencilla y rápida directamente desde la tablet proporcionada en su mesa asignada. Además, los clientes tienen la opción de solicitar su cuenta por separado y elegir su método de pago preferido, lo que mejora aún más su experiencia en el restaurante.
 
 ## Mockups y Diseño prototipo.
+https://github.com/No-Country/s13-19-m-python/assets/79483909/7cc067df-ef12-4308-9d01-b5c9b6c41e37
+
+
 
 ## Minimum Viable Product (MVP)
 
@@ -19,13 +22,14 @@
 + Lucas Simoes
   
 🛠️ Tech Stack:
-+ Python 3.10+
-+ Django
-+ Django REST Framework (DRF)
-+ Django REST Swagger (DRF-YASG)
-+ Cloudinary
-+ SQLite
-+ Poetry
+
++ <img src="https://github.com/No-Country/s13-19-m-python/assets/79483909/de25318b-23ef-41b8-8628-6cad0cc25c34"> Python 3.10+ 
+
++ <img src="https://github.com/No-Country/s13-19-m-python/assets/79483909/c6d479d7-609d-493c-8217-2c5b687b0e16"> Django + Django REST Framework (DRF) + Django REST Swagger (DRF-YASG)
+
++ <img src="https://github.com/No-Country/s13-19-m-python/assets/79483909/c80ce30a-728a-4e47-bed5-cebe4accc655" width="25" height="25"> Cloudinary
+
++ <img src="https://github.com/No-Country/s13-19-m-python/assets/79483909/8d9865d4-f19e-426d-8b78-dd78de00bdc4"> SQLite + Poetry
 
 🎨🖌️ Front End
 + Julian mosquer 
@@ -33,7 +37,11 @@
 + Yolly Josefina Benavides Padrino
   
 🛠️ Tech Stack:
-
++ <img src="https://github.com/No-Country/s13-19-m-python/assets/79483909/f820d238-a451-4dee-8287-5aabd69a6996"> React
++ <img src="https://github.com/No-Country/s13-19-m-python/assets/79483909/ec883823-7d48-4628-8db6-9bdaa25cdc14"> Tailwind
++ <img src="https://github.com/No-Country/s13-19-m-python/assets/79483909/ed30dc8f-b351-4c0f-9f8d-f774ffe0e1cf"> Next.js
++ <img src="https://github.com/No-Country/s13-19-m-python/assets/79483909/32f46036-d41a-484d-8267-9b8d79175d14"> Typescript
+  
 🔍 Testing
 + Nena Sofia Martinez 
 + Luz  Tabraj Briceño
@@ -45,7 +53,7 @@
 + Paloma Fantini
   
 🛠️ Tech Stack:
-+ <img src="https://github.com/No-Country/s13-19-m-python/assets/79483909/254d72f6-335f-4d69-a8dc-da3d26d32ac4" width="25" height="25">
++ <img src="https://github.com/No-Country/s13-19-m-python/assets/79483909/c41dd1bd-74ee-46f6-849e-ce1aa3a1cd68"> Figma
 
 ## Link del proyecto
 
