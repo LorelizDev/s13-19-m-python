@@ -56,7 +56,7 @@ Asegurar que la navegación sea fácil y que los usuarios puedan encontrar rápi
 + <img src="https://github.com/No-Country/s13-19-m-python/assets/79483909/8d9865d4-f19e-426d-8b78-dd78de00bdc4"> SQLite + Poetry
 
 🎨🖌️ Front End
-+ Julian mosquer [Linkedin](https://www.linkedin.com/in/julian-mosquera-09762029a/)
++ Julian Mosquera [Linkedin](https://www.linkedin.com/in/julian-mosquera-09762029a/)
 + Jostin Jerez Rosa [Linkedin](https://www.linkedin.com/in/jostinjerezrosa/)
 + Yolly Josefina Benavides Padrino [Linkedin](https://www.linkedin.com/in/yolly-benavides-421987281/)
   
