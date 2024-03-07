@@ -1,6 +1,6 @@
 <h1 align = "center">WebApp para Restaurantes: Comanda Click</h1>
 <p align="center">
-<img src="https://github.com/No-Country/c-14-31-n-java-react/assets/79483909/26f4e12a-1600-4f55-84fc-e026144f3f1c" style="max-width: 100%; display: inline-block;"/>
+<img src="https://github.com/No-Country/s13-19-m-python/assets/79483909/182b4c8e-bef3-4e8a-ab62-e9721ade42a9"/>
 </p>
 
 <img src="https://github.com/No-Country/s13-19-m-python/assets/79483909/d88e1355-cfc0-4c46-9dfb-ef369ed3bba6" width="25" height="25"> Bienvenido! Somos el equipo #s13-19-m-python, No Country. 
@@ -8,18 +8,42 @@
 **Comanda Click** es una aplicación web diseñada para simplificar y agilizar el proceso de pedidos en restaurantes. Nuestra plataforma permite a los clientes realizar sus pedidos de manera sencilla y rápida directamente desde la tablet proporcionada en su mesa asignada. Además, los clientes tienen la opción de solicitar su cuenta por separado y elegir su método de pago preferido, lo que mejora aún más su experiencia en el restaurante.
 
 ## Mockups y Diseño prototipo.
-https://github.com/No-Country/s13-19-m-python/assets/79483909/7cc067df-ef12-4308-9d01-b5c9b6c41e37
 
-
+https://github.com/No-Country/s13-19-m-python/assets/79483909/a167bcdf-2d86-422d-ad8a-8b510904a6f4
 
 ## Minimum Viable Product (MVP)
++ **Carta del Negocio:**
+Mostrar la lista de productos disponibles en el restaurante, incluyendo platos, bebidas y postres.
+Cada artículo debe incluir nombre, descripción y precio.
+Los usuarios pueden navegar por las diferentes categorías de productos.
+
++ **Pedidos Personalizados:**
+Permitir a los usuarios personalizar sus pedidos según sus preferencias (por ejemplo, agregar extras, solicitar cambios en los ingredientes, etc.).
+Integrar un sistema de selección de opciones para cada artículo en el menú.
+
++ **Pago de la Cuenta Individual:**
+Permitir a los usuarios pagar su cuenta individual directamente a través de la aplicación.
+Integrar métodos de pago seguros y populares, como tarjetas de crédito/débito o plataformas de pago en línea.
+
++ **Elegir la Modalidad de Pago:**
+Dar la opción a los usuarios de elegir entre pagar en el restaurante o pagar a través de la aplicación.
+Integrar una interfaz para seleccionar la modalidad de pago preferida antes de finalizar el pedido.
+
++ **Llamar a un Mozo:**
+Incluir un botón o función que permita a los usuarios solicitar asistencia de un mozo desde la aplicación.
+Esta función podría enviar una notificación al personal del restaurante para atender la mesa del cliente.
+
++ **Diseño de la Carta Genérica:**
+Diseñar una interfaz de usuario intuitiva y atractiva que refleje la identidad visual del restaurante.
+Asegurar que la navegación sea fácil y que los usuarios puedan encontrar rápidamente lo que están buscando en la carta.
 
 ## **Autores**
 
 ⚙️ Back End
-+ Crispthofer Rincon 
-+ Lorena Acosta
-+ Lucas Simoes
++ Crispthofer Rincon  [Linkedin](https://www.linkedin.com/in/carmurrain/)
++ Lorena Acosta [Linkedin](https://www.linkedin.com/in/silvia-lorena-acosta-ortiz/)
++ Lucas Simoes [Linkedin](https://www.linkedin.com/in/lucas-gabriel-simoes/)
++ Ezequiel Seminara [Linkedin](https://www.linkedin.com/in/e-seminara/)
   
 🛠️ Tech Stack:
 
@@ -32,9 +56,9 @@ https://github.com/No-Country/s13-19-m-python/assets/79483909/7cc067df-ef12-4308
 + <img src="https://github.com/No-Country/s13-19-m-python/assets/79483909/8d9865d4-f19e-426d-8b78-dd78de00bdc4"> SQLite + Poetry
 
 🎨🖌️ Front End
-+ Julian mosquer 
-+ Jostin Jerez Rosa 
-+ Yolly Josefina Benavides Padrino
++ Julian mosquer [Linkedin](https://www.linkedin.com/in/julian-mosquera-09762029a/)
++ Jostin Jerez Rosa [Linkedin](https://www.linkedin.com/in/jostinjerezrosa/)
++ Yolly Josefina Benavides Padrino [Linkedin](https://www.linkedin.com/in/yolly-benavides-421987281/)
   
 🛠️ Tech Stack:
 + <img src="https://github.com/No-Country/s13-19-m-python/assets/79483909/f820d238-a451-4dee-8287-5aabd69a6996"> React
@@ -43,14 +67,16 @@ https://github.com/No-Country/s13-19-m-python/assets/79483909/7cc067df-ef12-4308
 + <img src="https://github.com/No-Country/s13-19-m-python/assets/79483909/32f46036-d41a-484d-8267-9b8d79175d14"> Typescript
   
 🔍 Testing
-+ Nena Sofia Martinez 
-+ Luz  Tabraj Briceño
++ Nena Sofia Martinez [Linkedin](https://www.linkedin.com/in/nena-martinez/)
++ Luz  Tabraj Briceño [Linkedin](https://www.linkedin.com/in/luz-tabraj/)
   
 🛠️ Tech Stack:
++ <img src="https://github.com/No-Country/s13-19-m-python/assets/79483909/ff9c1ba5-e221-4a99-b8be-5590c1a1a918"> Postman
++ <img src="https://github.com/No-Country/s13-19-m-python/assets/79483909/62f90977-fcc4-4521-a601-448665dd5275"> Testmonitor
 
 🎨 UX/UI
-+ Daiana Belén Caffiero 
-+ Paloma Fantini
++ Daiana Belén Caffiero [Linkedin](https://www.linkedin.com/in/daiana-b-caffiero/)
++ Paloma Fantini [Linkedin](https://www.linkedin.com/in/fantinipaloma/)
   
 🛠️ Tech Stack:
 + <img src="https://github.com/No-Country/s13-19-m-python/assets/79483909/c41dd1bd-74ee-46f6-849e-ce1aa3a1cd68"> Figma
