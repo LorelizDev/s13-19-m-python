@@ -1,10 +1,11 @@
 import React from "react";
 import Image from "next/image";
+
 import { cn } from "@/lib/utils";
 import { buttonVariants } from "../../ui/button";
 import { Text } from "../../ui/text";
 import { Stack } from "@/components/layout/stack";
-import { ProductType } from "../food_menu_display";
+import { ProductType } from "@/state/cart.store";
 
 type Props = {
   products: ProductType[];
@@ -35,12 +36,12 @@ export const ProductsOrdered = ({ products }: Props) => {
 
             <div className="w-5/6 h-full  flex flex-col justify-between">
               <div className="w-fit flex flex-col cursor-pointer group ">
-                <Text type="subtitle">
-                  {product.product_name} asdeasd deasde
-                </Text>
+                <Text type="subtitle">{product.product_name}</Text>
                 <span className="w-0 h-[2px] mb-1 bg-blue-400 group-hover:w-full  origin-left transition-width duration-300"></span>
               </div>
-              <Text type="regular">Cantidad:</Text>
+              <Text type="regular">
+                Cantidad: <span>{product.quantity}</span>{" "}
+              </Text>
               <div className="flex justify-between">
                 <div className="w-9/12">
                   {" "}
@@ -60,7 +61,7 @@ export const ProductsOrdered = ({ products }: Props) => {
                     "font-bold select-none leading-6 "
                   )}
                 >
-                  ${product.price}
+                  ${product?.quantity && product.price * product?.quantity}
                 </p>
               </div>
             </div>

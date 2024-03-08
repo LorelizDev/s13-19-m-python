@@ -34,9 +34,9 @@ export default function CartModal({}: Props) {
           </SheetTitle>
           <div className="flex flex-col ">
             <ScrollArea className="h-[450px] flex flex-col gap-10">
-            {productsInCart.map((product) => (
+              {productsInCart.map((product) => (
                 <CartProduct key={product.id} product={product} />
-              ))} 
+              ))}
               <ScrollBar orientation="vertical" />
             </ScrollArea>
             <div className="">

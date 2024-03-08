@@ -13,7 +13,7 @@ import { Icon } from "@/components/ui/icon";
 import Image from "next/image";
 import content from "@/components/widgets/recomendations/content.json";
 import Link from "next/link";
-import { AnimatePresence, motion } from "framer-motion";
+import { motion } from "framer-motion";
 
 type Props = {};
 

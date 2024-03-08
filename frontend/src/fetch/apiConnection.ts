@@ -2,7 +2,7 @@ class API_CONNECTION {
   private BASE_URL = "";
 
   constructor(BASE_URL: string) {
-    this.BASE_URL = BASE_URL
+    this.BASE_URL = BASE_URL;
   }
 
   // Función auxiliar para configurar las cabeceras comunes
@@ -13,10 +13,9 @@ class API_CONNECTION {
     };
   }
 
-
   async get(endpoint: string): Promise<any> {
     const url = `${this.BASE_URL}${endpoint}`;
-    
+
     try {
       const response = await fetch(url, {
         method: "GET",
@@ -34,20 +33,19 @@ class API_CONNECTION {
     }
   }
 
-  async post(endpoint: string, data: any): Promise<any> {
+  async post(endpoint: string, formData: FormData): Promise<any> {
     const url = `${this.BASE_URL}${endpoint}`;
-
+  
     try {
       const response = await fetch(url, {
         method: "POST",
-        headers: this.getCommonHeaders(),
-        body: JSON.stringify(data),
+        body: formData,
       });
-
-      /* if (!response.ok) {
+  
+/*       if (!response.ok) {
         throw new Error(`Error ${response.status}: ${response.statusText}`);
       } */
-
+  
       return response.json();
     } catch (error) {
       console.error("Error during POST request:", error);
@@ -97,5 +95,6 @@ class API_CONNECTION {
   }
 }
 
-
-export const API = new API_CONNECTION("https://s1319mpython.pythonanywhere.com/api")
+export const API = new API_CONNECTION(
+  "https://s1319mpython.pythonanywhere.com/api"
+);

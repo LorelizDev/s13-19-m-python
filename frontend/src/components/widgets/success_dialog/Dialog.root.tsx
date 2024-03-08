@@ -13,13 +13,9 @@ import {
   DialogClose,
 } from "@/components/ui/dialog";
 
-type Props = {};
+type Props = { isOpen: any; setIsOpen: any; handleCloseDialog: any };
 
-export default function Page({}: Props) {
-  const [isOpen, setIsOpen] = React.useState(true);
-  function handleCloseDialog() {
-    setIsOpen(false);
-  }
+export function SuccessDialog({ isOpen, setIsOpen, handleCloseDialog }: Props) {
   return (
     <div className="">
       <Dialog open={isOpen}>

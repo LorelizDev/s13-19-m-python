@@ -2,22 +2,18 @@ import React from "react";
 import { FoodCard } from "./";
 import { API } from "@/fetch/apiConnection";
 import { ProductType } from "@/state/cart.store";
-import ensaladaPollo from '../../../../public/products/EnsaladPollo.webp'
-
-const newProducts = {
-  categories: ["Almuerzo", "Cena", "Plato principal"],
-  product_name: "Milanesa2",
-  image: ensaladaPollo,
-  description: "Prueba de comida en este caso milanesa2",
-  price: 2000,
-};
 
 type Props = {};
 
 export async function FoodMenu({}: Props) {
-  /* console.log(await API.post("/category/products/", newProducts)) */
-  const products: ProductType[] = await API.get("/products/products/");
+  
+  /*   
+  const formData = await setFormData()
+  console.log(await API.post("/products/products/", formData));
+  */   
 
+  const products: ProductType[] = await API.get("/products/products/");
+  console.log(products)
 
   return (
     <div id="part2" className="w-full bg-accent overflow-hidden">
