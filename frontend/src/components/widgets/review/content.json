@@ -1,0 +1,40 @@
+{
+  "reviews": [
+    {
+      "id": 1,
+      "image": "",
+      "rating": 5,
+      "description": "Me encantó este producto"
+    },
+    {
+      "id": 2,
+      "image": "",
+      "rating": 5,
+      "description": "Es toda una explosion de sabores únicos."
+    },
+    {
+      "id": 3,
+      "image": "",
+      "rating": 5,
+      "description": "Se ha vuelto mi favorito y creo que también será el tuyo"
+    },
+    {
+      "id": 4,
+      "image": "",
+      "rating": 5,
+      "description": "Además del servicio este plato es perfecto"
+    },
+    {
+      "id": 5,
+      "image": "",
+      "rating": 5,
+      "description": "Los mejores tacos de la ciudad"
+    },
+    {
+      "id": 6,
+      "image": "",
+      "rating": 5,
+      "description": "Me encantó este producto"
+    }
+  ]
+}

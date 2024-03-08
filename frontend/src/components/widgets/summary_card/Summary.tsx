@@ -3,57 +3,44 @@
 import React from "react";
 import content from "./content.json";
 
-import { Button } from "../../ui/button";
+import { Button, buttonVariants } from "../../ui/button";
 import { Text } from "../../ui/text";
 import { ProductsOrdered } from "./ProductsOrdered";
 import { useCartState } from "@/state/cart.store";
-import { SuccessDialog } from "../success_dialog";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import { useRouter } from "next/navigation";
+import { PaymentModalType } from "@/state/paymentModal.store";
+import { usePaymentModal } from "../../../state/paymentModal.store";
+import Link from "next/link";
+import { cn } from "@/lib/utils";
 
 export const Summary = () => {
   const { productsInCart } = useCartState((state) => state);
-  const [isOpen, setIsOpen] = React.useState(false);
-  const router = useRouter();
 
-  function handleDialog() {
-    setIsOpen(true);
-  }
-
-  function handleCloseDialog() {
-    setIsOpen(false);
-  }
   return (
-    <div className="">
-      <ScrollArea className="w-full h-screen flex flex-col justify-between gap-2 p-10">
-        <Text type="title" className="text-2xl font-bold text-foreground">
+    <div className="h-screen">
+      <ScrollArea className="w-full h-5/6 flex flex-col justify-between gap-2 p-10">
+        <Text type="title" className="text-2xl font-bold text-foreground mb-20">
           {content.pageTitle}
         </Text>
         <ProductsOrdered products={productsInCart} />
-
-        <div className="flex gap-5">
-          <Button
-            variant={"secondary"}
-            className="w-96 text-md font-bold self-center"
-            onClick={handleDialog}
-          >
-            {content.actionButton1}
-          </Button>
-          <Button
-            variant={"outline"}
-            className="w-96 text-md font-bold self-center"
-            onClick={() => router.push("/menu")}
-          >
-            {content.actionButton2}
-          </Button>
-        </div>
-
-        <SuccessDialog
-          handleCloseDialog={handleCloseDialog}
-          isOpen={isOpen}
-          setIsOpen={setIsOpen}
-        />
       </ScrollArea>
+      <div className="flex h-1/6 justify-center gap-5">
+        <Link
+          href={"/payment-methods"}
+          className={cn(
+            buttonVariants({ variant: "default" }),
+            "w-96 text-md font-bold self-center"
+          )}
+        >
+          confirmar
+        </Link>
+        <Button
+          variant={"outline"}
+          className="w-96 text-md font-bold self-center"
+        >
+          Seguir ordenando
+        </Button>
+      </div>
     </div>
   );
 };

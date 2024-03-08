@@ -31,11 +31,11 @@ export default function CartProduct({ product }: Props) {
 
   return (
     <div>
-      <Card className="flex justify-center items-center bg-accent/30 border-none px-5">
+      <Card className="flex justify-center items-center bg-card border-none px-5 py-2">
         <div className="w-1/3 h-full">
           {product?.image && (
             <Image
-              src={product?.image}
+            src={`https://res.cloudinary.com/dbs6ntoya/${product?.image}`}
               width={80}
               height={60}
               alt={`foto de ${product?.product_name}`}
@@ -44,7 +44,7 @@ export default function CartProduct({ product }: Props) {
           )}
         </div>
         <div className="w-1/3 h-full flex flex-col justify-between">
-          <Text type="semi-bold">{product?.product_name}</Text>
+          <Text type="semi-bold" className="line-clamp-1">{product?.product_name}</Text>
           <Text type="semi-bold">${product?.price}</Text>
         </div>
         <div className="w-1/3 h-16 flex flex-col justify-between items-end">

@@ -12,7 +12,7 @@ export default function layout({ children }: Props) {
       <MainPageLayout
         header={
           <Text type="title" className="h-20 flex justify-center items-center">
-            contános sobre tu experiencia
+            Nuestros clientes opinan.
           </Text>
         }
       >

@@ -1,6 +1,7 @@
-"use client";
-
 import React from "react";
+import content from "@/components/widgets/recomendations/content.json";
+import Link from "next/link";
+
 import {
   Carousel,
   CarouselContent,
@@ -11,26 +12,8 @@ import {
 import { Text } from "@/components/ui/text";
 import { Icon } from "@/components/ui/icon";
 import Image from "next/image";
-import content from "@/components/widgets/recomendations/content.json";
-import Link from "next/link";
-import { motion } from "framer-motion";
 
 type Props = {};
-
-const container = {
-  hidden: { opacity: 0 },
-  show: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.5,
-    },
-  },
-};
-
-const listItem = {
-  hidden: { opacity: 0 },
-  show: { opacity: 1 },
-};
 
 export function Recommendations({}: Props) {
   return (
@@ -42,36 +25,29 @@ export function Recommendations({}: Props) {
         }}
         className="w-full h-fit "
       >
-        <motion.div
-          variants={container}
-          initial="hidden"
-          animate="show"
-          className="flex gap-5"
-        >
+        <div>
           <CarouselContent className="h-full">
             {content.recommendations.map((recommendation) => (
-              <motion.div
-                variants={listItem}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                key={recommendation.id}
-              >
+              <div key={recommendation.id}>
                 <CarouselItem className="md:basis-1/2 lg:basis-1/3 h-full">
                   <Link
                     href={`/products/${recommendation.id}`}
                     className="p-1 w-96 h-44 bg-card rounded-2xl flex items-center px-5 cursor-pointer"
                   >
                     {/* eslint-disable */}
-                    <Image
-                      src={recommendation.image}
-                      alt="imagen de producto"
-                      width={176}
-                      height={144}
-                      className="w-44 h-36 bg-gray-50 rounded-xl aspect-video"
-                    />
+                    <div className="relative w-[176px] h-[124px] rounded-xl overflow-hidden">
+                      <Image
+                        src={recommendation.image}
+                        alt="imagen de producto"
+                        fill
+                        loading="eager"
+                        sizes="(max-width: 1600px) 176px, 124px"
+                        className="object-cover"
+                      />
+                    </div>
                     {/* eslint-enable */}
                     <div className="self-start mt-7 ml-5">
-                      <p>{recommendation.name}</p>
+                      <p className="line-clamp-1">{recommendation.name}</p>
                       <div className="flex">
                         {Array.from({ length: recommendation.rating }).map(
                           (_, i) => (
@@ -79,24 +55,24 @@ export function Recommendations({}: Props) {
                               key={i}
                               iconName="star"
                               className="text-yellow-500"
+                              size="big"
                             />
                           )
                         )}
                       </div>
-                      <p className="line-clamp-2">
+                      <p className="line-clamp-2 text-sm">
                         {recommendation.description}
                       </p>
                     </div>
                   </Link>
                 </CarouselItem>
-              </motion.div>
+              </div>
             ))}
           </CarouselContent>
-        </motion.div>
+        </div>
         <CarouselPrevious />
         <CarouselNext />
       </Carousel>
     </div>
   );
 }
-("/images/pepe");

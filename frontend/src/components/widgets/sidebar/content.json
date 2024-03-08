@@ -8,33 +8,33 @@
     },
     {
       "id": 2,
-      "icon": "table",
-      "name": "Mesa",
-      "url": "/table"
-    },
-    {
-      "id": 3,
       "icon": "restaurantMenu",
       "name": "Menu",
       "url": "/menu"
     },
     {
-      "id": 4,
+      "id": 3,
       "icon": "bell",
       "name": "Mozo",
       "url": ""
     },
     {
+      "id": 4,
+      "icon": "bill",
+      "name": "Cuenta",
+      "url": "/bill"
+    },
+    {
       "id": 5,
       "icon": "message",
       "name": "Reseñas",
-      "url": "reviews"
+      "url": "/reviews"
     },
     {
       "id": 6,
       "icon": "users",
       "name": "Nosotros",
-      "url": "about"
+      "url": "/about"
     }
   ]
 }

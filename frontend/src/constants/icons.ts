@@ -12,7 +12,10 @@ import {
   MdOutlineCreditCard,
   MdStar,
   MdOutlineTableRestaurant,
+  MdKeyboardBackspace,
 } from "react-icons/md";
+import { ImSpinner9 } from "react-icons/im";
+import { GiKnifeFork } from "react-icons/gi";
 
 interface IconTypeMap {
   [key: string]: React.ComponentType<React.SVGProps<SVGSVGElement>>;
@@ -30,6 +33,9 @@ export const icons: IconTypeMap = {
   table: MdOutlineTableRestaurant,
   trash: FiTrash,
   cart: FiShoppingCart,
+  spinner: ImSpinner9,
+  back: MdKeyboardBackspace,
+  fork: GiKnifeFork,
 };
 
 export type IconTypesType = keyof typeof icons;

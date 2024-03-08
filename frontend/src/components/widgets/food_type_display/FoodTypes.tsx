@@ -3,22 +3,27 @@
 import React, { useEffect } from "react";
 import content from "./content.json";
 import Link from "next/link";
+
 import { Text } from "@/components/ui/text";
 import { useSearchParams } from "next/navigation";
 import { motion } from "framer-motion";
-import { useFoodState, FoodStateTypes } from "@/state/foodType.store";
+import { useFoodState } from "@/state/foodType.store";
+
+export type CategoryKey = "lunch" | "dinner" | "snacks" | "breakfast" | "drink";
+
+export type CategoryMap = {
+  [key: string]: string;
+};
+
+export const categories: CategoryMap = {
+  lunch: "Almuerzo",
+  dinner: "Cena",
+  snacks: "Merienda",
+  breakfast: "Desayuno",
+  drink: "Bebida",
+};
 
 type Props = {};
-
-type CategoryKey = "lunch" | "dinner" | "snacks" | "breakfast" | "drinks";
-
-const categories: Record<CategoryKey, string> = {
-  lunch: "Almuerzos",
-  dinner: "Cenas",
-  snacks: "Meriendas",
-  breakfast: "Desayunos",
-  drinks: "Bebidas",
-};
 
 const variants = {
   initial: { opacity: 0 },
@@ -64,7 +69,7 @@ export function FoodTypes({}: Props) {
           <li className="mb-3" key={buttons.name}>
             <Link
               href={buttons.url}
-              className="text-sm mx-3 mb-3 w-32 md:w-48 h-10 bg-[#616161] text-white text-center rounded-lg py-6 flex items-center justify-center hover:bg-gray-400 transition duration-500 "
+              className="text-sm mx-3 mb-3 w-32 md:w-48 h-10 bg-card text-white text-center rounded-lg py-6 flex items-center justify-center hover:bg-gray-400 transition duration-500 "
             >
               <Text type="semi-bold">{buttons.name}</Text>{" "}
             </Link>

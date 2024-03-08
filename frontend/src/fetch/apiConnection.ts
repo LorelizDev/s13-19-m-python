@@ -33,18 +33,19 @@ class API_CONNECTION {
     }
   }
 
-  async post(endpoint: string, formData: FormData): Promise<any> {
+  async post(endpoint: string, data: any): Promise<any> {
     const url = `${this.BASE_URL}${endpoint}`;
   
     try {
       const response = await fetch(url, {
         method: "POST",
-        body: formData,
+        body: JSON.stringify(data),
+        headers: this.getCommonHeaders(),
       });
   
-/*       if (!response.ok) {
+      if (!response.ok) {
         throw new Error(`Error ${response.status}: ${response.statusText}`);
-      } */
+      }
   
       return response.json();
     } catch (error) {

@@ -18,18 +18,16 @@ export const ProductsOrdered = ({ products }: Props) => {
         return (
           <div
             key={product.id}
-            className="w-full flex justify-between items-center gap-10"
+            className="w-full mb-5 flex justify-between items-center gap-10"
           >
             <div className="relative self-start size-20 overflow-hidden">
               {product?.image && (
                 <Image
-                  src={product.image}
-                  alt={product.product_name + "image"}
+                  className="items-center rounded-lg object-cover object-bottom aspect-video"
+                  src={`https://res.cloudinary.com/dbs6ntoya/${product?.image}`}
+                  alt={product?.product_name}
                   fill
-                  sizes="(min-width: 80px) 80px"
-                  loading="eager"
-                  style={{ objectFit: "cover", objectPosition: "fit" }}
-                  className="rounded-md cursor-pointer"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 220px, 191px"
                 />
               )}
             </div>
@@ -40,13 +38,13 @@ export const ProductsOrdered = ({ products }: Props) => {
                 <span className="w-0 h-[2px] mb-1 bg-blue-400 group-hover:w-full  origin-left transition-width duration-300"></span>
               </div>
               <Text type="regular">
-                Cantidad: <span>{product.quantity}</span>{" "}
+                Cantidad: <span>{product.quantity?.toFixed(0)}</span>{" "}
               </Text>
               <div className="flex justify-between">
                 <div className="w-9/12">
                   {" "}
                   <p className="mt-2">
-                    Ordenado por:{" "}
+
                     <span className="font-bold text-foreground"></span>
                   </p>
                   {product.id !== products.length && <hr className="mt-5 " />}
@@ -61,7 +59,7 @@ export const ProductsOrdered = ({ products }: Props) => {
                     "font-bold select-none leading-6 "
                   )}
                 >
-                  ${product?.quantity && product.price * product?.quantity}
+                  ${product?.quantity && Math.round(product.price) * product?.quantity}
                 </p>
               </div>
             </div>

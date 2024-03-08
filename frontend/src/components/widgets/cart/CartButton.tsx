@@ -2,15 +2,6 @@
 
 import React from "react";
 
-import {
-  Sheet,
-  SheetContent,
-  SheetDescription,
-  SheetHeader,
-  SheetTitle,
-  SheetTrigger,
-} from "@/components/ui/sheet";
-
 import { useCartState } from "@/state/cart.store";
 import { Icon } from "@/components/ui/icon";
 import { Badge } from "@/components/ui/badge";
@@ -32,7 +23,7 @@ export function CartButton({}: Props) {
           >
           {productsInCart.reduce((acum, product) => acum + (product.quantity || 0), 0)}
         </Badge>
-        <Icon iconName="cart" size="big" />
+        <Icon iconName="fork" size="big" />
       </div>
     </div>
   );

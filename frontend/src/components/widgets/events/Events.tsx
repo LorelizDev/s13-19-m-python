@@ -1,5 +1,9 @@
-import { Text } from "@/components/ui/text";
 import React from "react";
+import content from "@/components/widgets/events/content.json";
+import Image from "next/image";
+import Link from "next/link";
+
+import { Text } from "@/components/ui/text";
 import {
   Carousel,
   CarouselContent,
@@ -7,9 +11,6 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-import content from "@/components/widgets/events/content.json";
-import Image from "next/image";
-import Link from "next/link";
 
 type Props = {};
 
@@ -27,12 +28,14 @@ export function Events({}: Props) {
           {content.events.map((event, index) => (
             <Link key={event.id} href={`/events/${event.id}`}>
               <CarouselItem className="md:basis-1/2 lg:basis-1/3 h-full">
-                <div className="relative p-1 w-[500px] h-60 bg-card  rounded-3xl flex justify-center items-center">
+                <div className="relative p-1 w-[360px] h-[240px] bg-card  rounded-3xl flex justify-center items-center">
                   <Image
                     src={event.image}
                     alt="imagen de producto"
                     fill
-                    className="w-44 h-36 bg-gray-50 rounded-xl aspect-video"
+                    loading="eager"
+                    sizes="(max-width: 1600px) 360px, 240px"
+                    className="object-contain"
                   />
                 </div>
               </CarouselItem>

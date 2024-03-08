@@ -1,16 +1,39 @@
 "use client";
-
 import { Text } from "@/components/ui/text";
 import React from "react";
 
+import { ProductType, useCartState } from "@/state/cart.store";
+import { Button, buttonVariants } from "@/components/ui/button";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
-import { ProductType } from "@/state/cart.store";
-import { buttonVariants } from "@/components/ui/button";
+import { API } from "@/fetch/apiConnection";
+import {
+  UseSuccessModalType,
+  useSuccessModal,
+} from "@/state/successModal.store";
 
 type Props = { products: ProductType[] };
 
+async function sendOrder(
+  products: ProductType[],
+  setOpen: UseSuccessModalType["setOpen"]
+) {
+  const productNames = products.map((product) => product.product_name);
+  const data = {
+    products: productNames,
+    is_paid: false,
+    table_id: 1,
+    user_id: 1,
+  };
+  const res = await API.post("/orders/list_of_orders/", data);
+
+  if (res.Order) {
+    setOpen();
+  }
+}
+
 export default function TotalCard({ products }: Props) {
+  const { setOpen } = useSuccessModal((state) => state);
   // Calcular la cantidad total de productos pedidos
   const totalItems = products.reduce(
     (total, product) => total + (product.quantity || 0),
@@ -32,7 +55,7 @@ export default function TotalCard({ products }: Props) {
         </div>
         <div className="flex justify-between">
           <Text type="regular">Subtotal</Text>
-          <Text type="semi-bold">{totalPrice}</Text>
+          <Text type="semi-bold">{totalPrice.toFixed(2)}</Text>
         </div>
         <div className="flex justify-between">
           <Text type="regular">Descuentos</Text>
@@ -40,15 +63,18 @@ export default function TotalCard({ products }: Props) {
         </div>
         <div className="flex justify-between">
           <Text type="regular">Total</Text>
-          <Text type="regular">{totalPrice}</Text>
+          <Text type="regular">{totalPrice.toFixed(2)}</Text>
         </div>
       </div>
-      <Link
-        href={"/summary"}
-        className={cn(buttonVariants({ variant: "default" }))}
+      <Button
+        onClick={() => sendOrder(products, setOpen)}
+        className={cn(
+          buttonVariants({ variant: "default" }),
+          "w-full bg-card hover:bg-accent mb-2"
+        )}
       >
-        <Text type="semi-bold">Pagar</Text>
-      </Link>
+        <Text type="semi-bold">Realizar pedido</Text>
+      </Button>
     </div>
   );
 }
